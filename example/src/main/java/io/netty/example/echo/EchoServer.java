@@ -36,6 +36,8 @@ public final class EchoServer {
 
     static final int PORT = Integer.parseInt(System.getProperty("port", "8007"));
 
+
+    // 需要先compile netty-common模块
     public static void main(String[] args) throws Exception {
         // Configure SSL.
         final SslContext sslCtx = ServerUtil.buildSslContext();
