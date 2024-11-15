@@ -73,6 +73,15 @@ import java.net.SocketAddress;
  * It is important to call {@link #close()} or {@link #close(ChannelPromise)} to release all
  * resources once you are done with the {@link Channel}. This ensures all resources are
  * released in a proper way, i.e. filehandles.
+ *
+ * <hr>
+ * Channel 即 通道，是指向网络套接字或能够执行I/O操作的组件 的 nexus(联结) 大大降低直接使用Socket的复杂度 <br>
+ * <ol>
+ * <li>所有I/O操作都是异步的（closeFuture/ChannelPromise...）</li>
+ * <li>通道是分层的(parent方法)</li>
+ * <li>向下转换类型，访问实现特定传输操作（Channel向下转换，以调用其方法）</li>
+ * <li>支持释放资源操作 close相关</li>
+ * </ol>
  */
 public interface Channel extends AttributeMap, ChannelOutboundInvoker, Comparable<Channel> {
 
